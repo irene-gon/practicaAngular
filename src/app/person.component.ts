@@ -82,7 +82,7 @@ export class PersonComponent implements OnInit {
     
   }
 
-  public aceptar( ): void{
+  public aceptar( form:NgForm): void{
     this.setActualizar();
     this.contact = {
       nombre: "",
@@ -94,6 +94,7 @@ export class PersonComponent implements OnInit {
       sexo: "",
       notas: ""
     }
+    form.resetForm()
   }
 
 
@@ -121,7 +122,7 @@ export class PersonComponent implements OnInit {
   public hasError = (controlName: string, errorName: string) =>{
     return this.personaForm.controls[controlName].hasError(errorName);
   }
-  public agregar() {
+  public agregar(form:NgForm) {
     if (!this.getActualizar()){
      let ageNum = parseInt(this.contact.edad)
     if(ageNum > 0 && ageNum <= 125){
@@ -138,7 +139,7 @@ export class PersonComponent implements OnInit {
       sexo: "",
       notas: ""
     }
-   // form.resetForm()
+    form.resetForm()
   }
 }
 }

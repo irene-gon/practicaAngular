@@ -1,5 +1,5 @@
 <H1> CONTACTOS</H1>
-<form class="form"  [formGroup]="personaForm"  #formtemp="ngForm" (submit)="agregar()">
+<form class="form"  [formGroup]="personaForm" id="ngForm" #formtemp="ngForm" (submit)="agregar(formtemp)">
   <mat-grid-list cols="2" rowHeight="300px">
     <mat-grid-tile>
       <div class="controles-container">
@@ -129,7 +129,7 @@
           <button mat-raised-button color="primary" type="submit"   [disabled]="!personaForm.valid || getActualizar()">
             Añadir
           </button>
-          <button mat-raised-button color="primary"  (click)="aceptar()" type="button"  [disabled]="!personaForm.valid || !getActualizar()">
+          <button mat-raised-button color="primary"  (click)="aceptar(formtemp)" type="button"  [disabled]="!personaForm.valid || !getActualizar()">
             Aceptar
           </button>
         </div>
